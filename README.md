@@ -23,11 +23,11 @@ The following test case:
 Will produce the following test output:
 
     SomeTests started.
-    	  -[SomeTests testBaconIsCooked]
+        -[SomeTests testBaconIsCooked]
     [F]	-[SomeTests testEggsAreFlipped]
-    	  -[SomeTests testGasIsOn]
-    	  -[SomeTests testSausagesAreCooked]
-    	  -[SomeTests testToastIsReady]
+    	-[SomeTests testGasIsOn]
+    	-[SomeTests testSausagesAreCooked]
+    	-[SomeTests testToastIsReady]
 
     [F] -[SomeTests testEggsAreFlipped]
     	Unknown.m:0: failed to find eggs
