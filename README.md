@@ -5,7 +5,35 @@ SenTestObserver is designed in such a way that creating objects which output tes
 
 Transcript makes it easier by allowing a developer to create an object which conforms to TSCReporter, then assigning it to `[TSCObserver setActiveReporter:]`. That's it.
 
-Transcript uses TSCTidyReporter by default, which removes a lot of the unnecessary mess which OCUnit usually outputs to the console. Your results might look something like this:
+Transcript uses TSCTidyReporter by default, which removes a lot of the unnecessary mess which OCUnit usually outputs to the console.
+
+The following test case:
+
+    @implementation SomeTests
+    - (void)testGasIsOn {}
+    - (void)testEggsAreFlipped
+    {
+        [NSException raise:NSInternalInconsistencyException format:@"failed to find eggs"];
+    }
+    - (void)testBaconIsCooked {}
+    - (void)testSausagesAreCooked {}
+    - (void)testToastIsReady {}
+    @end
+
+Will produce the following test output:
+
+    SomeTests started.
+    	  -[SomeTests testBaconIsCooked]
+    [F]	-[SomeTests testEggsAreFlipped]
+    	  -[SomeTests testGasIsOn]
+    	  -[SomeTests testSausagesAreCooked]
+    	  -[SomeTests testToastIsReady]
+
+    [F] -[SomeTests testEggsAreFlipped]
+    	Unknown.m:0: failed to find eggs
+    SomeTests ended.
+
+If you're using [Specify](github.com/rdavies/Specify.git) or [Specta](http://github.com/petejkim/specta), or any other testing framework, your test names will work with no additional effort:
 
     TSCObserverSpecification started.
         should override the default SenTestObserver class in NSUserDefaults in +load
