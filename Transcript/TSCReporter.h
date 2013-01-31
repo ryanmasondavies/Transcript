@@ -14,26 +14,23 @@
 @protocol TSCReporter <NSObject>
 
 /** Invoked by TSCObserver when a suite has started.
- @param run The current test run. */
-- (void)suiteDidStart:(SenTestRun *)run;
-
-/** Invoked by TSCObserver when a suite has ended.
- @param run The current test run. */
-- (void)suiteDidEnd:(SenTestRun *)run;
+ @param notification The notification sent by OCUnit. */
+- (void)suiteDidStart:(NSNotification *)notification;
 
 /** Invoked by TSCObserver when a test has started.
- @param test The test that has started.
- @param run The current test run. */
-- (void)testDidStart:(INLTest *)test run:(SenTestRun *)run;
+ @param notification The notification sent by OCUnit. */
+- (void)testDidStart:(NSNotification *)notification;
 
 /** Invoked by TSCObserver when a test has failed.
- @param test The test in which an exception has been raised. 
- @param run The current test run. */
-- (void)testDidFail:(INLTest *)test run:(SenTestRun *)run;
+ @param notification The notification sent by OCUnit. */
+- (void)testDidFail:(NSNotification *)notification;
 
 /** Invoked by TSCObserver when a test has ended.
- @param test The test that has ended.
- @param run The current test run. */
-- (void)testDidEnd:(INLTest *)test run:(SenTestRun *)run;
+ @param notification The notification sent by OCUnit. */
+- (void)testDidEnd:(NSNotification *)notification;
+
+/** Invoked by TSCObserver when a suite has ended.
+ @param notification The notification sent by OCUnit. */
+- (void)suiteDidEnd:(NSNotification *)notification;
 
 @end

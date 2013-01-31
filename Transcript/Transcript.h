@@ -8,3 +8,4 @@
 
 #import "TSCObserver.h"
 #import "TSCReporter.h"
+#import "TSCTidyReporter.h"

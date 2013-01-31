@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		58C9C60AB0CD40C9833257DF /* libPods-Transcript.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B0778799DC4EECBC736C83 /* libPods-Transcript.a */; };
-		6BAAE3E1AF2040BABD1A4BCC /* libPods-Specs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5EE0F7D68DB4DA3B0F72BE6 /* libPods-Specs.a */; };
 		9433A08F16B9F1F5000A9CDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9433A08E16B9F1F5000A9CDE /* Foundation.framework */; };
 		9433A09416B9F1F5000A9CDE /* Transcript.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9433A09316B9F1F5000A9CDE /* Transcript.h */; };
 		9433A09E16B9F1F5000A9CDE /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9433A09D16B9F1F5000A9CDE /* SenTestingKit.framework */; };
@@ -17,11 +15,13 @@
 		9433A0E416B9F886000A9CDE /* TSCObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 9433A0E116B9F886000A9CDE /* TSCObserver.m */; };
 		9484D31A16B9FB57002FE72F /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9433A09D16B9F1F5000A9CDE /* SenTestingKit.framework */; };
 		9484D31D16B9FBEB002FE72F /* TSCObserverSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 9484D31C16B9FBEB002FE72F /* TSCObserverSpec.m */; };
-		9484D32016B9FC49002FE72F /* TSCReporterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 9484D31F16B9FC49002FE72F /* TSCReporterSpec.m */; };
+		9484D32016B9FC49002FE72F /* TSCTidyReporterSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 9484D31F16B9FC49002FE72F /* TSCTidyReporterSpec.m */; };
+		94E8FFF616BA806F0024C4F0 /* TSCTidyReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E8FFF516BA806F0024C4F0 /* TSCTidyReporter.m */; };
+		DB9E186829E242A6B01553DA /* libPods-Specs.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0992C695A14D4781DC8DF5 /* libPods-Specs.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9433A0A216B9F1F5000A9CDE /* PBXContainerItemProxy */ = {
+		94F52B7116BA09ED00648F1A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9433A08216B9F1F5000A9CDE /* Project object */;
 			proxyType = 1;
@@ -44,7 +44,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1280EA0B561B43468D5B9942 /* Pods-Specs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.xcconfig"; path = "Pods/Pods-Specs.xcconfig"; sourceTree = SOURCE_ROOT; };
+		4C0992C695A14D4781DC8DF5 /* libPods-Specs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Specs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9433A08B16B9F1F5000A9CDE /* libTranscript.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTranscript.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9433A08E16B9F1F5000A9CDE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9433A09316B9F1F5000A9CDE /* Transcript.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transcript.h; sourceTree = "<group>"; };
@@ -55,11 +55,11 @@
 		9433A0E116B9F886000A9CDE /* TSCObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCObserver.m; sourceTree = "<group>"; };
 		9433A0E216B9F886000A9CDE /* TSCReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCReporter.h; sourceTree = "<group>"; };
 		9484D31C16B9FBEB002FE72F /* TSCObserverSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCObserverSpec.m; sourceTree = "<group>"; };
-		9484D31F16B9FC49002FE72F /* TSCReporterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCReporterSpec.m; sourceTree = "<group>"; };
+		9484D31F16B9FC49002FE72F /* TSCTidyReporterSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCTidyReporterSpec.m; sourceTree = "<group>"; };
 		9484D32716B9FCAE002FE72F /* TSCObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCObserver.h; sourceTree = "<group>"; };
-		AADBE57D84CF45A38DCCE778 /* Pods-Transcript.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transcript.xcconfig"; path = "Pods/Pods-Transcript.xcconfig"; sourceTree = SOURCE_ROOT; };
-		F5EE0F7D68DB4DA3B0F72BE6 /* libPods-Specs.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Specs.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F6B0778799DC4EECBC736C83 /* libPods-Transcript.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Transcript.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94E8FFF416BA806F0024C4F0 /* TSCTidyReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSCTidyReporter.h; sourceTree = "<group>"; };
+		94E8FFF516BA806F0024C4F0 /* TSCTidyReporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSCTidyReporter.m; sourceTree = "<group>"; };
+		EAACFB83D6A04E65B9BB6109 /* Pods-Specs.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Specs.xcconfig"; path = "Pods/Pods-Specs.xcconfig"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +69,6 @@
 			files = (
 				9433A08F16B9F1F5000A9CDE /* Foundation.framework in Frameworks */,
 				9484D31A16B9FB57002FE72F /* SenTestingKit.framework in Frameworks */,
-				58C9C60AB0CD40C9833257DF /* libPods-Transcript.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +79,7 @@
 				9433A09E16B9F1F5000A9CDE /* SenTestingKit.framework in Frameworks */,
 				9433A0A116B9F1F5000A9CDE /* Foundation.framework in Frameworks */,
 				9433A0A416B9F1F5000A9CDE /* libTranscript.a in Frameworks */,
-				6BAAE3E1AF2040BABD1A4BCC /* libPods-Specs.a in Frameworks */,
+				DB9E186829E242A6B01553DA /* libPods-Specs.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,8 +93,7 @@
 				9433A0BA16B9F23D000A9CDE /* Specs */,
 				9433A08D16B9F1F5000A9CDE /* Frameworks */,
 				9433A08C16B9F1F5000A9CDE /* Products */,
-				AADBE57D84CF45A38DCCE778 /* Pods-Transcript.xcconfig */,
-				1280EA0B561B43468D5B9942 /* Pods-Specs.xcconfig */,
+				EAACFB83D6A04E65B9BB6109 /* Pods-Specs.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,8 +111,7 @@
 			children = (
 				9433A08E16B9F1F5000A9CDE /* Foundation.framework */,
 				9433A09D16B9F1F5000A9CDE /* SenTestingKit.framework */,
-				F6B0778799DC4EECBC736C83 /* libPods-Transcript.a */,
-				F5EE0F7D68DB4DA3B0F72BE6 /* libPods-Specs.a */,
+				4C0992C695A14D4781DC8DF5 /* libPods-Specs.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -126,6 +123,8 @@
 				9484D32716B9FCAE002FE72F /* TSCObserver.h */,
 				9433A0E116B9F886000A9CDE /* TSCObserver.m */,
 				9433A0E216B9F886000A9CDE /* TSCReporter.h */,
+				94E8FFF416BA806F0024C4F0 /* TSCTidyReporter.h */,
+				94E8FFF516BA806F0024C4F0 /* TSCTidyReporter.m */,
 			);
 			path = Transcript;
 			sourceTree = "<group>";
@@ -134,7 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				9484D31C16B9FBEB002FE72F /* TSCObserverSpec.m */,
-				9484D31F16B9FC49002FE72F /* TSCReporterSpec.m */,
+				9484D31F16B9FC49002FE72F /* TSCTidyReporterSpec.m */,
 				9433A0DD16B9F77E000A9CDE /* TSCSpecHelper.pch */,
 				9433A0BD16B9F23D000A9CDE /* Specs-Info.plist */,
 			);
@@ -151,7 +150,6 @@
 				9433A08716B9F1F5000A9CDE /* Sources */,
 				9433A08816B9F1F5000A9CDE /* Frameworks */,
 				9433A08916B9F1F5000A9CDE /* CopyFiles */,
-				62043A0ABC7A45F0AAC512D7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,12 +168,12 @@
 				9433A09816B9F1F5000A9CDE /* Frameworks */,
 				9433A09916B9F1F5000A9CDE /* Resources */,
 				9433A09A16B9F1F5000A9CDE /* ShellScript */,
-				2F1867C8568848E988172855 /* Copy Pods Resources */,
+				D89C8014BE4B4BAAB80E78A1 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9433A0A316B9F1F5000A9CDE /* PBXTargetDependency */,
+				94F52B7216BA09ED00648F1A /* PBXTargetDependency */,
 			);
 			name = Specs;
 			productName = TranscriptTests;
@@ -221,34 +219,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F1867C8568848E988172855 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-Specs-resources.sh\"\n";
-		};
-		62043A0ABC7A45F0AAC512D7 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-Transcript-resources.sh\"\n";
-		};
 		9433A09A16B9F1F5000A9CDE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -262,6 +232,20 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		D89C8014BE4B4BAAB80E78A1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-Specs-resources.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -270,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9433A0E416B9F886000A9CDE /* TSCObserver.m in Sources */,
+				94E8FFF616BA806F0024C4F0 /* TSCTidyReporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,17 +263,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				9484D31D16B9FBEB002FE72F /* TSCObserverSpec.m in Sources */,
-				9484D32016B9FC49002FE72F /* TSCReporterSpec.m in Sources */,
+				9484D32016B9FC49002FE72F /* TSCTidyReporterSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9433A0A316B9F1F5000A9CDE /* PBXTargetDependency */ = {
+		94F52B7216BA09ED00648F1A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9433A08A16B9F1F5000A9CDE /* Transcript */;
-			targetProxy = 9433A0A216B9F1F5000A9CDE /* PBXContainerItemProxy */;
+			targetProxy = 94F52B7116BA09ED00648F1A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -342,7 +327,6 @@
 		};
 		9433A0B116B9F1F5000A9CDE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AADBE57D84CF45A38DCCE778 /* Pods-Transcript.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/Transcript.dst;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -356,7 +340,6 @@
 		};
 		9433A0B216B9F1F5000A9CDE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AADBE57D84CF45A38DCCE778 /* Pods-Transcript.xcconfig */;
 			buildSettings = {
 				DSTROOT = /tmp/Transcript.dst;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -370,7 +353,7 @@
 		};
 		9433A0B416B9F1F5000A9CDE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1280EA0B561B43468D5B9942 /* Pods-Specs.xcconfig */;
+			baseConfigurationReference = EAACFB83D6A04E65B9BB6109 /* Pods-Specs.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Specs/TSCSpecHelper.pch;
@@ -382,7 +365,7 @@
 		};
 		9433A0B516B9F1F5000A9CDE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1280EA0B561B43468D5B9942 /* Pods-Specs.xcconfig */;
+			baseConfigurationReference = EAACFB83D6A04E65B9BB6109 /* Pods-Specs.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Specs/TSCSpecHelper.pch;

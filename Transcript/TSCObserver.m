@@ -8,8 +8,7 @@
 
 #import "TSCObserver.h"
 #import "TSCReporter.h"
-#import "INLInvocation.h"
-#import "INLTest.h"
+#import "TSCTidyReporter.h"
 
 @implementation TSCObserver
 
@@ -23,7 +22,9 @@
     if ([[self reporters] count] > 0) {
         return [self reporters][0];
     } else {
-        return nil;
+        id reporter = [[TSCTidyReporter alloc] init];
+        [self reporters][0] = reporter;
+        return reporter;
     }
 }
 
@@ -42,49 +43,29 @@
     return reporters;
 }
 
-+ (INLTest *)testFromNotification:(NSNotification *)notification
-{
-    SenTestRun *run = [notification run];
-    SenTestCase *testCase = (SenTestCase *)[run test];
-    INLInvocation *invocation = (INLInvocation *)[testCase invocation];
-    return [invocation test];
-}
-
-+ (NSMutableArray *)notifications
-{
-    static NSMutableArray *notifications = nil;
-    if (notifications == nil) notifications = [NSMutableArray array];
-    return notifications;
-}
-
 + (void)testSuiteDidStart:(NSNotification *)notification
 {
-    NSLog(@"Active reporter: %s, %@", __PRETTY_FUNCTION__, [self activeReporter]);
-    [[self activeReporter] suiteDidStart:[notification run]];
+    [[self activeReporter] suiteDidStart:notification];
 }
 
 + (void)testCaseDidStart:(NSNotification *)notification
 {
-    NSLog(@"Active reporter: %s, %@", __PRETTY_FUNCTION__, [self activeReporter]);
-    [[self activeReporter] testDidStart:[self testFromNotification:notification] run:[notification run]];
+    [[self activeReporter] testDidStart:notification];
 }
 
 + (void)testCaseDidStop:(NSNotification *)notification
 {
-    NSLog(@"Active reporter: %s, %@", __PRETTY_FUNCTION__, [self activeReporter]);
-    [[self activeReporter] testDidEnd:[self testFromNotification:notification] run:[notification run]];
+    [[self activeReporter] testDidEnd:notification];
 }
 
 + (void)testCaseDidFail:(NSNotification *)notification
 {
-    NSLog(@"Active reporter: %s, %@", __PRETTY_FUNCTION__, [self activeReporter]);
-    [[self activeReporter] testDidFail:[self testFromNotification:notification] run:[notification run]];
+    [[self activeReporter] testDidFail:notification];
 }
 
 + (void)testSuiteDidStop:(NSNotification *)notification
 {
-    NSLog(@"Active reporter: %s, %@", __PRETTY_FUNCTION__, [self activeReporter]);
-    [[self activeReporter] suiteDidEnd:[notification run]];
+    [[self activeReporter] suiteDidEnd:notification];
 }
 
 @end
