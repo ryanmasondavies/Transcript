@@ -9,3 +9,5 @@
 #import <Specify/Specify.h>
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
+#import <OCMock/OCMock.h>
+#import <Transcript/Transcript.h>
