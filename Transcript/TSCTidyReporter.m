@@ -22,21 +22,20 @@
     return self;
 }
 
+- (void)log:(NSString *)message
+{
+    printf("%s", [message cStringUsingEncoding:NSASCIIStringEncoding]);
+}
+
 - (NSString *)prefixForRun:(SenTestRun *)run
 {
     if ([run hasSucceeded] == NO) return @"[F]";
     return @"";
 }
 
-- (void)log:(NSString *)message
-{
-    printf("%s\n", [message cStringUsingEncoding:NSASCIIStringEncoding]);
-}
-
 - (void)suiteDidStart:(NSNotification *)notification
 {
-    [self log:[NSString stringWithFormat:@"%@ started.", [notification test]]];
-    [self log:@""];
+    [self log:[NSString stringWithFormat:@"%@ started.\n", [[notification test] name]]];
 }
 
 - (void)testDidStart:(NSNotification *)notification
@@ -50,22 +49,23 @@
 
 - (void)testDidEnd:(NSNotification *)notification
 {
-    [self log:[NSString stringWithFormat:@"%@\t%@", [self prefixForRun:[notification run]], [notification test]]];
+    [self log:[NSString stringWithFormat:@"%@\t%@\n", [self prefixForRun:[notification run]], [[notification test] name]]];
 }
 
 - (void)suiteDidEnd:(NSNotification *)notification
 {
     if ([self.failures count] > 0) {
-        [self log:@""];
+        [self log:@"\n"];
         [self.failures enumerateObjectsUsingBlock:^(NSNotification *notification, NSUInteger idx, BOOL *stop) {
             NSException *exception = [notification exception];
-            [self log:[NSString stringWithFormat:@"[F] %@", [notification test]]];
-            [self log:[NSString stringWithFormat:@"\t%@:%@: %@", [exception filePathInProject], [exception lineNumber], [exception reason]]];
+            [self log:[NSString stringWithFormat:@"[F] %@\n", [[notification test] name]]];
+            [self log:[NSString stringWithFormat:@"\t%@:%@: %@\n", [exception filePathInProject], [exception lineNumber], [exception reason]]];
         }];
+        [self log:@"\n"];
     }
     
-    [self log:@""];
-    [self log:[NSString stringWithFormat:@"%@ ended.", [notification test]]];
+    [self log:[NSString stringWithFormat:@"%@ ended.\n", [[notification test] name]]];
+    [self log:@"\n"];
     
     [[self failures] removeAllObjects];
 }
