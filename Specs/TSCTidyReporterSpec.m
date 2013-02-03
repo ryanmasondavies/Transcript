@@ -11,7 +11,6 @@ SpecBegin(TSCTidyReporter)
 __block TSCTidyReporter *reporter;
 __block NSMutableString *log;
 __block id notification;
-__block id run;
 
 id (^mockNotification)(NSString*, NSException*) = ^(NSString *name, NSException *exception) {
     id notification = [OCMockObject niceMockForClass:[NSNotification class]];
@@ -27,14 +26,15 @@ id (^mockNotification)(NSString*, NSException*) = ^(NSString *name, NSException 
 before(^{
     reporter = [OCMockObject partialMockForObject:[TSCTidyReporter new]];
     log = [NSMutableString string];
-    notification = mockNotification(@"name", nil);
     [[[(id)reporter stub] andCall:@selector(appendString:) onObject:log] log:OCMOCK_ANY];
 });
 
 when(@"a suite starts", ^{
-    it(@"should report the suite has started", ^{
+    before(^{ notification = mockNotification(@"suite", nil); });
+    
+    it(@"should print that the suite has started", ^{
         [reporter suiteDidStart:notification];
-        expect(log).to.contain(@"name started");
+        expect(log).to.contain(@"suite started");
     });
     
     it(@"should end with a newline", ^{
@@ -45,6 +45,7 @@ when(@"a suite starts", ^{
 
 when(@"a test passes", ^{
     before(^{
+        notification = mockNotification(@"test", nil);
         id run = [(NSNotification *)notification run];
         [[[run stub] andReturnValue:OCMOCK_VALUE((BOOL){YES})] hasSucceeded];
     });
@@ -56,17 +57,18 @@ when(@"a test passes", ^{
     
     it(@"should indent test names", ^{
         action();
-        expect(log).to.contain(@"\tname");
+        expect(log).to.contain(@"\ttest");
     });
     
-    it(@"should end test names with a newline", ^{
+    it(@"should end with a newline", ^{
         action();
-        expect(log).to.contain(@"name\n");
+        expect(log).to.contain(@"test\n");
     });
 });
 
 when(@"a test fails", ^{
     before(^{
+        notification = mockNotification(@"test", nil);
         id run = [(NSNotification *)notification run];
         [[[run stub] andReturnValue:OCMOCK_VALUE((BOOL){NO})] hasSucceeded];
     });
@@ -76,26 +78,33 @@ when(@"a test fails", ^{
         [reporter testDidEnd:notification];
     };
     
+    it(@"should indent test names", ^{
+        action();
+        expect(log).to.contain(@"\t");
+    });
+    
+    it(@"should print test names", ^{
+        action();
+        expect(log).to.contain(@"test");
+    });
+    
     it(@"should prefix failing tests with [F]", ^{
         action();
         expect([log hasPrefix:@"[F]"]).to.beTruthy();
     });
     
-    it(@"should indent failing test names", ^{
-        action();
-        expect(log).to.contain(@"\tname");
-    });
-    
     it(@"should end with a newline", ^{
         action();
-        expect([log hasSuffix:@"\n"]).to.beTruthy();
+        expect(log).to.contain(@"test\n");
     });
 });
 
 when(@"a suite ends", ^{
-    it(@"should report the suite has ended", ^{
+    before(^{ notification = mockNotification(@"suite", nil); });
+    
+    it(@"should print that the suite has ended", ^{
         [reporter suiteDidEnd:notification];
-        expect(log).to.contain(@"name ended");
+        expect(log).to.contain(@"suite ended");
     });
     
     it(@"should end with a newline", ^{
@@ -104,8 +113,6 @@ when(@"a suite ends", ^{
     });
     
     when(@"tests have failed", ^{
-        __block NSArray *lines;
-        
         void (^action)(void) = ^(void) {
             NSArray *exceptions = @[
                 [NSException exceptionWithName:@"SomeException" reason:@"some reason" userInfo:@{SenTestFilenameKey:@(__FILE__), SenTestLineNumberKey:@(20)}],
@@ -126,15 +133,7 @@ when(@"a suite ends", ^{
             [reporter testDidEnd:notifications[1]];
             
             [reporter suiteDidEnd:notification];
-            
-            lines = [log componentsSeparatedByString:@"\n"];
         };
-        
-        it(@"should prefix failed test names with `[F]`", ^{
-            action();
-            expect(log).to.contain(@"F\tsome test");
-            expect(log).to.contain(@"F\tsome other test");
-        });
         
         it(@"should indent failed test names", ^{
             action();
@@ -142,10 +141,10 @@ when(@"a suite ends", ^{
             expect(log).to.contain(@"\tsome other test");
         });
         
-        it(@"should end test names with a newline", ^{
+        it(@"should prefix failed test names with `[F]`", ^{
             action();
-            expect(log).to.contain(@"some test\n");
-            expect(log).to.contain(@"some other test\n");
+            expect(log).to.contain(@"[F]\tsome test");
+            expect(log).to.contain(@"[F]\tsome other test");
         });
     });
 });
