@@ -33,7 +33,7 @@ Will produce the following test output:
     	Unknown.m:0: failed to find eggs
     SomeTests ended.
 
-If you're using [Specify](http://github.com/rdavies/Specify.git), your test names will work with no additional effort:
+If you're using a different testing tool, Transcript will work with no additional effort, provided that each test provides a useful name:
 
     TSCObserverSpecification started.
         should override the default SenTestObserver class in NSUserDefaults in +load
@@ -44,6 +44,8 @@ If you're using [Specify](http://github.com/rdavies/Specify.git), your test name
       	+testStepDidStop: should forward to active reporter's -testDidEnd:
       	+testSuiteDidStop: should forward to active reporter's -suiteDidEnd:
     TSCObserverSpecification ended.
+
+Libraries may provide additional support by implementing their own reporters. [Specify](http://github.com/rdavies/Specify.git) is an example one such library.
 
 Installation
 ------------
