@@ -33,7 +33,7 @@ Will produce the following test output:
     	Unknown.m:0: failed to find eggs
     SomeTests ended.
 
-If you're using [Specify](http://github.com/rdavies/Specify.git) or [Specta](http://github.com/petejkim/specta), or any other testing framework, your test names will work with no additional effort:
+If you're using [Specify](http://github.com/rdavies/Specify.git), your test names will work with no additional effort:
 
     TSCObserverSpecification started.
         should override the default SenTestObserver class in NSUserDefaults in +load
