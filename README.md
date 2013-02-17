@@ -50,12 +50,12 @@ Libraries may provide additional support by implementing their own reporters. [S
 Installation
 ------------
 
-To use Transcript, include it in your Podfile: `pod 'Transcript'`. TSCObserver will automatically swap out SenTestLog, the default OCUnit test reporter.
+To use Transcript, include it in your Podfile: `pod 'Transcript', '~> 0.1.0'`. TSCObserver will automatically swap out SenTestLog, the default OCUnit test reporter.
 
 License
 -------
 
-    Copyright (c) 2012 Ryan Davies
+    Copyright (c) 2013 Ryan Davies
     
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
