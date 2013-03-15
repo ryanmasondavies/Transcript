@@ -1,11 +1,3 @@
-//
-//  TSCObserverSpec.m
-//  Transcript
-//
-//  Created by Ryan Davies on 31/01/2013.
-//  Copyright (c) 2013 Ryan Davies. All rights reserved.
-//
-
 SpecBegin(TSCObserver)
 
 __block id reporter;
