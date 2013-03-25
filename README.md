@@ -45,7 +45,7 @@ If you're using a different testing tool, Transcript will work with no additiona
       	+testSuiteDidStop: should forward to active reporter's -suiteDidEnd:
     TSCObserverSpecification ended.
 
-Libraries may provide additional support by implementing their own reporters. [Specify](http://github.com/rdavies/Specify.git) is an example one such library.
+Libraries may provide additional support by implementing their own reporters.
 
 Installation
 ------------
