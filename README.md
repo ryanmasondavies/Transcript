@@ -47,13 +47,18 @@ If you're using a different testing tool, Transcript will work with no additiona
 
 Libraries may provide additional support by implementing their own reporters.
 
+Important note
+==============
+
+Xcode relies on a specific logging format to provide error reporting. Using Transcript makes the output prettier and easier to read, and could be useful for running SenTestingKit suites from the command line.
+
 Installation
-------------
+============
 
 To use Transcript, include it in your Podfile: `pod 'Transcript', '~> 0.1.0'`. TSCObserver will automatically swap out SenTestLog, the default OCUnit test reporter.
 
 License
--------
+=======
 
     Copyright (c) 2013 Ryan Davies
     
