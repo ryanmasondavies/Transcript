@@ -29,7 +29,7 @@ Will produce the following test output:
     	Unknown.m:0: failed to find eggs
     SomeTests ended.
 
-If you're using a different testing tool, Transcript will work with no additional effort, provided that each test provides a useful name:
+If you're using a different testing tool that builds on SenTestingKit, Transcript will work with no additional effort:
 
     TSCObserverSpecification started.
         should override the default SenTestObserver class in NSUserDefaults in +load
@@ -44,6 +44,8 @@ If you're using a different testing tool, Transcript will work with no additiona
 This is the default logging format.
 
 Custom logging formats can be easily implemented by writing a custom class which conforms to `TSCReporter`. To see an example implementation, see the `TSCTidyReporter` class.
+
+Transcript does not support XCTest.
 
 Important note
 ==============
