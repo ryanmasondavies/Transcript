@@ -3,9 +3,7 @@ Transcript
 
 SenTestObserver is designed in such a way that creating objects which output test data to the console can be more difficult than necessary.
 
-Transcript makes it easier by allowing a developer to create an object which conforms to TSCReporter, then assigning it to `[TSCObserver setActiveReporter:]`. That's it.
-
-Transcript uses TSCTidyReporter by default, which removes a lot of the unnecessary mess which OCUnit usually outputs to the console.
+Transcript makes it easier to customise SenTestingKit test output.
 
 The following test case:
 
@@ -45,17 +43,19 @@ If you're using a different testing tool, Transcript will work with no additiona
       	+testSuiteDidStop: should forward to active reporter's -suiteDidEnd:
     TSCObserverSpecification ended.
 
-Libraries may provide additional support by implementing their own reporters.
+This is the default logging format.
+
+Custom logging formats can be easily implemented by writing a custom class which conforms to `TSCReporter`. To see an example implementation, see the `TSCTidyReporter` class.
 
 Important note
 ==============
 
-Xcode relies on a specific logging format to provide error reporting. Using Transcript makes the output prettier and easier to read, and could be useful for running SenTestingKit suites from the command line.
+Xcode relies on a specific logging format to provide error reporting as part of its user interface - that is, green and red tests. Transcript is useful if you rely more on console support or are building tests from the command line, but not if you rely on support from the Xcode interface.
 
 Installation
 ============
 
-To use Transcript, include it in your Podfile: `pod 'Transcript', '~> 0.1.0'`. TSCObserver will automatically swap out SenTestLog, the default OCUnit test reporter.
+To use Transcript, include it in your Podfile: `pod 'Transcript', '~> 0.1.0'`.
 
 License
 =======
