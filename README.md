@@ -1,8 +1,6 @@
 Transcript
 ==========
 
-SenTestObserver is designed in such a way that creating objects which output test data to the console can be more difficult than necessary.
-
 Transcript makes it easier to customise SenTestingKit test output.
 
 The following test case:
